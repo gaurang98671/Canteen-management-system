@@ -19,7 +19,8 @@ import java.awt.Font;
 import java.awt.Color;
 import java.awt.SystemColor;
 
-public class Main {
+public class Main 
+{
 
 	private JFrame frame;
 	private JTextField txtUserName;
@@ -29,13 +30,19 @@ public class Main {
 	/**
 	 * Launch the application.
 	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
+	public static void main(String[] args)
+	{
+		EventQueue.invokeLater(new Runnable() 
+		{
+			public void run() 
+			{
+				try 
+				{
 					Main window = new Main();
 					window.frame.setVisible(true);
-				} catch (Exception e) {
+				} 
+				catch (Exception e) 
+				{
 					e.printStackTrace();
 				}
 			}
@@ -45,7 +52,8 @@ public class Main {
 	/**
 	 * Create the application.
 	 */
-	public Main() {
+	public Main() 
+	{
 		initialize();
 	}
 
@@ -100,7 +108,8 @@ public class Main {
 				String Pin=txtPassword.getText().toString();
 				
 				
-				try{  
+				try
+				{  
 					  
 					Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/project","root","1962");  
 					//here sonoo is database name, root is username and password  
@@ -131,7 +140,8 @@ public class Main {
 					
 					}
 				
-					}catch(Exception e1){ System.out.println(e1);
+				}
+				catch(Exception e1){ System.out.println(e1);
 				}
 		}
 
@@ -155,8 +165,8 @@ public class Main {
 				//here sonoo is database name, root is username and password  
 				Statement stmt=con.createStatement(); 
 				stmt.executeUpdate("truncate logged");con.close();
-
 			}
+			
 
 			private void addToLogged(String userName) throws SQLException  //adds user id to logged table
 			{
@@ -166,8 +176,6 @@ public class Main {
 				ResultSet rs=stmt.executeQuery("select user_id from login where user_name='"+userName+"'");
 				rs.next();
 				stmt.executeUpdate("insert into logged values("+rs.getInt(1)+")");
-				
-				
 			}
 		});
 		btnLogin.setBounds(123, 226, 85, 21);
@@ -186,8 +194,6 @@ public class Main {
 				Sign_in signin = new Sign_in();
 				signin.setvisible(true);
 				frame.dispose();
-				
-				
 			}
 		});
 		btnCreate.setBounds(105, 280, 127, 21);
